@@ -105,6 +105,11 @@ public class Campo {
     }
 
     // #region Getters and Setters
+
+    public boolean isMinado() {
+        return minado;
+    }
+
     public boolean isMarcado() {
         return marcado;
     }
