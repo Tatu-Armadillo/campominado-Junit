@@ -27,7 +27,7 @@ public class Campo {
     }
 
     private void notificarObservadores(CampoEvento evento) {
-        observadores.stream().forEach(o -> o.eventoOcoorreu(this, evento));
+        observadores.stream().forEach(o -> o.eventoOcorreu(this, evento));
     }
 
     public boolean adicionarVizinho(Campo vizinho) {
@@ -54,8 +54,9 @@ public class Campo {
             marcado = !marcado;
             if (marcado) {
                 notificarObservadores(CampoEvento.MARCAR);
+            } else {
+                notificarObservadores(CampoEvento.DESMARCAR);
             }
-            notificarObservadores(CampoEvento.DESMARCAR);
         }
     }
 
@@ -94,8 +95,8 @@ public class Campo {
     }
 
     // criar teste
-    public long minasNaVizinhanca() {
-        return vizinhos.stream().filter(v -> v.minado).count();
+    public int minasNaVizinhanca() {
+        return (int) vizinhos.stream().filter(v -> v.minado).count();
     }
 
     // criar teste
@@ -103,6 +104,7 @@ public class Campo {
         aberto = false;
         minado = false;
         marcado = false;
+        notificarObservadores(CampoEvento.REINICIAR);
     }
 
     // criar teste

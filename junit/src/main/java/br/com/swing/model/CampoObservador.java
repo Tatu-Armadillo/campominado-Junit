@@ -2,5 +2,5 @@ package br.com.swing.model;
 
 @FunctionalInterface
 public interface CampoObservador {
-    public void eventoOcoorreu(Campo campo, CampoEvento evento);
+    public void eventoOcorreu(Campo campo, CampoEvento evento);
 }
